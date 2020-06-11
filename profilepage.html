@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Portfolio</title>
+</head>
+<body>
+	<div id="loading">
+		<center>
+		git hub portfolio on the way....
+		</center>
+	</div>
+	<div class ="main"  id ="maincontent" hidden>
+	<center>
+	<img 
+	height="500px"
+	width=500px"
+	id="profileimage" 
+	> 
+	<h2 id="fullname"></h2>
+	<p id="bio"></p>
+	<h1> Mail me</h1>
+		<h5 > check me on <a id="githublink"> github</a></h5>
+</center>
+</div>
+<script>
+	fetch("https://api.github.com/users/rojinamaharjan123")
+	.then(response=>response.json())
+	.then(function (data) {
+		console.log(data)
+		document.getElementById('profileimage').src=data['avatar_url']
+		document.getElementById('fullname').textContent=data['name']
+		document.getElementById('bio').textContent=data
+		['bio']
+		document.getElementById('githublink').href=data['html_url']
+		document.getElementById('maincontent').hidden=false
+		document.getElementById('loading').hidden=true
+	})
+	
+</script>
+</body>
+</html>
